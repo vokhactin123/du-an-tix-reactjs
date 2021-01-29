@@ -1,0 +1,30 @@
+.dr-menu--listDate{
+    li{
+        transition: 0.2s all;
+        font-size: 14px !important;
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 600 !important;
+        line-height: 32px;
+        &:hover{
+            transition: 0.2s all;
+            color: rgb(255, 255, 255);
+            background-color: rgb(71, 202, 253) !important; 
+        }
+    }
+    width: 100px !important;
+    overflow-x: hidden !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #F5F5F5;
+    } 
+    &::-webkit-scrollbar-thumb {
+        background-color: #b8b8b8;
+    }
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+}

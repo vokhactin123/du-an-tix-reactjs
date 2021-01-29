@@ -1,0 +1,15 @@
+.modal-dialog--fixedHome{
+    max-width: 950px;
+    .modal-content--fixedHome{
+        background: transparent !important;
+        border: none !important;
+        .modal-body--fixed{
+            position: relative;
+            .btn_close{
+                position: absolute;
+                right: -5px;
+                top: -11px;
+            }
+        }
+    }
+}

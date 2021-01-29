@@ -1,0 +1,34 @@
+li.wp__logoDetail{
+  transition: 0.4s all;
+  text-transform: uppercase;
+    opacity: 0.5;
+    color: rgb(20, 20, 20) !important;
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+    padding: 27px 10px;
+    color: #ffffff;
+    font-size: 16px;
+    border-top: 1px solid #f1f1f1;
+    &:first-child{
+      border-top: none;
+    }
+    &:hover{
+      transition: 0.4s all;
+      opacity: 1;
+      cursor: pointer;
+    }
+    .wpThumb__detailMovie{
+      margin-right: 15px !important;
+      width: 50px;
+      height: auto;
+      overflow: hidden;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  li.active__cinemaSys{
+    opacity: 1 !important;
+    transition: 0.4s all;
+  }
