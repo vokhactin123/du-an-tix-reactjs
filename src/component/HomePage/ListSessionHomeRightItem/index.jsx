@@ -1,6 +1,5 @@
 import React from "react";
 import format from "date-format";
-import { NavLink } from "react-router-dom";
 function getTimeCurrent() {
   let timeCurrent = format("hh:mm", new Date());
   return timeCurrent;
@@ -12,10 +11,14 @@ function ListSessionHomeRightItem(props) {
     TimeEnd = parseInt(format("hh", new Date(item.ngayChieuGioChieu))) + 2;
   }
   function setDisable() {
-    if (format("hh:mm", new Date(item.ngayChieuGioChieu)) < getTimeCurrent()) {
-      return false;
+    if (item !== undefined) {
+      if (
+        format("hh:mm", new Date(item?.ngayChieuGioChieu)) < getTimeCurrent()
+      ) {
+        return false;
+      }
+      return true;
     }
-    return true;
   }
   return (
     <a
@@ -25,10 +28,10 @@ function ListSessionHomeRightItem(props) {
           : `list__session__filmShow__disabled session__filmShow__item`
       }
     >
-      <NavLink to={`/Booking/${item.maLichChieu}`}>
-        {format("hh:mm", new Date(item.ngayChieuGioChieu))}
-      </NavLink>
-      ~{TimeEnd + format(":mm", new Date(item.ngayChieuGioChieu))}
+      <a href={`/Booking/${item.maLichChieu}`} target="_blank">
+        {format("hh:mm", new Date(item?.ngayChieuGioChieu))}
+      </a>
+      ~{TimeEnd + format(":mm", new Date(item?.ngayChieuGioChieu))}
     </a>
   );
 }

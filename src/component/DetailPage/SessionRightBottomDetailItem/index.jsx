@@ -9,8 +9,10 @@ function SessionRightBottomDetailItem(props) {
   }
   return (
     <a className="item_sessionDetailShowTimes" href="#">
-      <span>{format("hh:mm", new Date(item.ngayChieuGioChieu))}</span>~
-      {TimeEnd + format(":mm", new Date(item.ngayChieuGioChieu))}
+      <a target="_blank" href={`/Booking/${item?.maLichChieu}`}>
+        {format("hh:mm", new Date(item?.ngayChieuGioChieu))}
+      </a>
+      ~{TimeEnd + format(":mm", new Date(item?.ngayChieuGioChieu))}
     </a>
   );
 }
