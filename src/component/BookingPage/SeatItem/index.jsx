@@ -9,16 +9,19 @@ function renderTypeSeat(daDat) {
   }
 }
 function renderSeatVip(loaiGhe) {
-  if (loaiGhe === "Vip") {
-    return "seat__item__vip";
+  if (loaiGhe) {
+    if (loaiGhe === "Vip") {
+      return "seat__item__vip";
+    }
   }
 }
 function SeatItem(props) {
   let dispatch = useDispatch();
+  let { maGhe, tenGhe, loaiGhe, daDat } = props.seatItem;
   let listSeatSelected = useSelector((state) => {
     return state.BookingReducer.listSeatSelected;
   });
-  let { maGhe, tenGhe, loaiGhe, daDat } = props.seatItem;
+
   // console.log(props.seatItem);
   function activeSeatSelected() {
     const idxSeat = listSeatSelected.findIndex((ghe) => ghe.maGhe === maGhe);

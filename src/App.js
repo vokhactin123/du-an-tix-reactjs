@@ -16,7 +16,7 @@ function App() {
               <Home />
             </Layout>
           </Route>
-          <Route path="/Login">
+          {/* <Route path="/Login">
             <Login />
           </Route>
           <Route path="/Reg">
@@ -29,7 +29,7 @@ function App() {
           </Route>
           <Route path="/Booking/:code">
             <Booking />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
     </>
