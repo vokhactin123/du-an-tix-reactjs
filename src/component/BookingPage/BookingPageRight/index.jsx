@@ -49,9 +49,9 @@ function BookingPageRight(props) {
           <div className="ck__info__film">
             <h4>
               <span>C18</span>
-              {bookingInfo.tenPhim}
+              {bookingInfo?.tenPhim}
             </h4>
-            <p>{bookingInfo.diaChi}</p>
+            <p>{bookingInfo?.diaChi}</p>
             <p>
               {bookingInfo.ngayChieu} - {bookingInfo.gioChieu} -{" "}
               {bookingInfo.tenRap}
@@ -151,7 +151,7 @@ function BookingPageRight(props) {
           <button
             type="submit"
             className="btn btn-secondary btn__bookTickets"
-            disabled={listSeatSelected.length > 0 ? false : true}
+            disabled={listSeatSelected?.length > 0 ? false : true}
           >
             ĐẶT VÉ
           </button>

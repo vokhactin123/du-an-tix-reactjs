@@ -1,0 +1,72 @@
+.wp__checkOut__responsive__414pxTix{
+    display: none;
+    width: 414.4px !important;
+    .chooseSeat__header__rp{
+        justify-content: center;
+        padding: 20px 0px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #cecece;
+        box-shadow: 1px 1px 5px 1px #e3e3e3;
+        .wp__iconBack{
+            position: relative;
+            left: -100px;
+        }
+        ul{
+            margin-bottom: 0px;
+            li{
+                color: #ff0505;
+                font-weight: bold;
+                margin-left: -30px;
+            }
+        }
+    }
+    .wp__checkOut__info__responsive{
+        .info__seat__choose{
+            font-weight: 700;
+            font-size: 14px;
+            color:rgba(212,126,29,1);
+            letter-spacing: 1.6px;
+        }
+        .sm__text__total__rp{
+            color: #73e611;
+            font-weight: bold;
+        }
+        .text__checkOut__rp{
+            font-size: 28px;
+            font-weight: bold;
+            color: #73e611;
+            margin-top: 10px;
+
+        }
+        max-width: 100%;
+        .ck__info__notification__rp{
+            .autoCenter__Bottom__rp{
+                text-align: justify;
+                p{
+                    text-align: center !important;
+                    font-size: 12px;
+                    img{
+                        margin-right: 10px;
+                        width: 20px !important;
+                    }
+                }
+            }
+        }
+    }
+    .btn__checkOut_rp__414px{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        z-index: 999;
+        width: 100%;
+        padding: 20px 0px;
+        background: linear-gradient(95deg, #73e611 0%, #119e00 59%);
+    }
+}
+.margin_Y{
+    padding: 20px 0px;
+    border-top: 1px dashed rgb(240, 240, 240);
+    border-bottom: 1px dashed  rgb(240, 240, 240);
+    margin: 20px 0px !important;
+}

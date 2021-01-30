@@ -30,7 +30,10 @@ function Booking(props) {
             <div className="container wrapper__bookingpage">
               <div className="row no-gutters">
                 <Loading />
-                <BookingPageLeft bookingInfo={bookingInfo} />
+                <BookingPageLeft
+                  bookingInfo={bookingInfo}
+                  codeShowTime={code}
+                />
                 <BookingPageRight
                   bookingInfo={bookingInfo}
                   codeShowTime={code}

@@ -15,6 +15,9 @@ p{
     padding-left: 0px;
  }
  @media screen and (max-width: 1024px) {
+    .wp__checkOut__responsive__414pxTix{
+        display: none;
+    }
     .w-8--fixed{
         max-width: 100% !important;
     }
@@ -112,6 +115,9 @@ p{
  }
 
  @media screen and (max-width: 500px) {
+    .wp__checkOut__responsive__414pxTix{
+        display: block;
+    }
     .autoCenter{
         width: 100% !important;
     }
@@ -161,6 +167,15 @@ p{
         right: 0px;
         font-weight: bold;
      }
+     .wp__checkoutResponsive__414px{
+         .info__seat__choose{
+            font-weight: 700;
+            font-size: 14px;
+            color: #d47e1d;
+            letter-spacing: 1.6px;
+         }
+         display: block !important;
+     }
      .time__selected__seat{
          font-size: 25px !important;
      }
@@ -168,6 +183,9 @@ p{
  @media screen and (max-width: 500px) {
     .wrapper__bookingpage{
         .chooseSeat{
+            .cs__content__topRight .text__tggg{
+                display: none;
+            }
            &__header{
             flex-flow: column-reverse !important;
                flex-direction: column;
@@ -184,19 +202,34 @@ p{
             &__content{
                margin: 20px 5px 0px 16px !important;
                .cs__content__bottom{
+            
                    margin-top: 30px !important;
                    .listSeat{
                        overflow-x: auto;
                        .rowSeat{
                            width: 169%;
+
+                           .seat__wrapper:nth-child(n+2) .seat__item{
+                            line-height: 27px;
+                            font-size: 0px;
+                            width: 30px !important;
+                            height: 30px !important;
+                           }
+                           .sp__seat__selected{
+                               font-size: 10px !important;
+                           }
                        }
                    }
                    .title__seat__common{
-                       width: 25%;
+                       display: flex;
+
                        span.sp__seat{
-                           width: 20px;
-                           height: 20px;
+                           width: 15px;
+                           height: 15px;
                        }
+                       span.sp__seat__text{
+                        font-size: 12px !important;
+                    }
                    }
                }
            }

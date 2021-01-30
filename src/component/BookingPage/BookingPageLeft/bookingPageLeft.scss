@@ -3,6 +3,7 @@
     flex: auto;
 }
 .chooseSeat{
+    // display: none;
     &__header{
         font-weight: bold;
         align-items: center;
@@ -21,6 +22,9 @@
         &__infoUser{
             margin-right: 20px;
         }
+    }
+    .wp__checkoutResponsive__414px{
+        display: none;
     }
     .Active__btn__bookingResponsive{
         display: none;
