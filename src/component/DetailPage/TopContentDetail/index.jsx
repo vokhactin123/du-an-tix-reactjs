@@ -144,7 +144,7 @@ function TopContentDetail(props) {
         </div>
       </div>
       {infoFilm && activeModal ? (
-        <ModalDetail trailer={infoFilm.trailer} handleClose={handleClose} />
+        <ModalDetail trailer={infoFilm?.trailer} handleClose={handleClose} />
       ) : (
         ""
       )}

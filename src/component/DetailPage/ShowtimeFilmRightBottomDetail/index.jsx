@@ -18,10 +18,12 @@ function ShowtimeFilmRightBottomDetail(props) {
     dispatch(showInfoFilmByDate(date));
   }, [date]);
   useEffect(() => {
-    dispatch(showInfoFilmByDate(date));
+    if (cinemaSysSelected) {
+      dispatch(showInfoFilmByDate(date));
+    }
   }, [cinemaSysSelected?.maHeThongRap]);
   const renderInfoBottom = () => {
-    if (infoBottom.length > 0 && infoBottom[0]?.length > 0) {
+    if (infoBottom?.length > 0 && infoBottom[0]?.length > 0) {
       return infoBottom.map((item, index) => {
         return (
           <ShowtimeFilmRightBottomDetailItem

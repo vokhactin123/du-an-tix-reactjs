@@ -85,7 +85,7 @@ function BookingPageRight(props) {
                 E-Mail
               </label>
             </div>
-            {errors.email && errors.email?.type === "required" && (
+            {/* {errors.email && errors.email?.type === "required" && (
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Email is required!
               </p>
@@ -94,7 +94,7 @@ function BookingPageRight(props) {
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Email is not valid!
               </p>
-            )}
+            )} */}
           </div>
           <div className="ck__info__phone">
             <div className="ck__info__wrapperPhone">
@@ -115,7 +115,7 @@ function BookingPageRight(props) {
                 Phone
               </label>
             </div>
-            {errors.phone && errors.phone?.type === "minLength" && (
+            {/* {errors.phone && errors.phone?.type === "minLength" && (
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Phone has minLength of 8!
               </p>
@@ -129,7 +129,7 @@ function BookingPageRight(props) {
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Phone start 09|03|07!
               </p>
-            )}
+            )} */}
           </div>
         </div>
         <div className="ck__info__bottom">
