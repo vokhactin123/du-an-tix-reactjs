@@ -12,7 +12,7 @@ function Detail(props) {
   let { idFilm } = useParams();
   // console.log(idFilm);
   useEffect(() => {
-    if (idFilm !== undefined) {
+    if (idFilm) {
       dispatch(getInfoDetailFilmRequest(idFilm));
       window.scrollTo(0, 0);
     }

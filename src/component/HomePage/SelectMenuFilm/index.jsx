@@ -16,7 +16,7 @@ function SelectMenuFilm(props) {
   });
   function showListMenuFilm() {
     // console.log(listMovie);
-    if (listMovie.length > 0) {
+    if (listMovie?.length > 0) {
       // console.log(listMovie);
       return listMovie.map((item, index) => {
         return (

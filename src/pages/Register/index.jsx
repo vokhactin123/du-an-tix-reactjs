@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import style from "./Register.module.scss";
 import { RegMemberFromForm } from "../../redux/actions/User";
-import { ResetErMess } from "../../redux/actions/User";
+// import { ResetErMess } from "../../redux/actions/User";
 function Register(props) {
   let messEr = useSelector((state) => {
     return state.UserReducer.messError;
   });
-  console.log(messEr);
+  // console.log(messEr);
   let dispatch = useDispatch();
   let history = useHistory();
   let [userReg, setUserReg] = useState({
@@ -37,7 +37,7 @@ function Register(props) {
     if (value === "") {
       errorMes = "*" + name + " is not empty!";
     }
-    if (type === "email") {
+    if (type === "email" && type !== undefined) {
       if (value === "") {
         errorMes = name + " is not empty!";
       } else {

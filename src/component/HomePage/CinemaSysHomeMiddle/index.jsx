@@ -119,7 +119,7 @@ function CinemaSysHomeMiddle(props) {
             propsThumb={
               listThumbCinemaSysByCinemaSelected(CinemaSysSelected)
                 ? listThumbCinemaSysByCinemaSelected(CinemaSysSelected)[index]
-                : null
+                : ""
             }
             active={activeIdxBrand === index}
             setActiveBrand={setActiveBrand}
