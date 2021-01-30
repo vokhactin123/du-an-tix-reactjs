@@ -21,11 +21,11 @@ function CinemaSysHomeRightItem(props) {
         <div
           className="wp__filmShow__info__top"
           data-toggle="collapse"
-          href={"#collapseInfo" + item.maPhim}
+          href={"#collapseInfo" + item?.maPhim}
         >
           <a className="wp__thumb__filmShow">
             <img
-              src={item.hinhAnh}
+              src={item?.hinhAnh}
               alt="tiec trang mau"
               className="img-fluid"
             />
@@ -33,17 +33,17 @@ function CinemaSysHomeRightItem(props) {
           <div className="wp__text__filmShow">
             <p>
               <span className="code__filmShow">C18</span>
-              {item.tenPhim}
+              {item?.tenPhim}
             </p>
             <p>100 phút - TIX 9.3 - IMDb 0</p>
           </div>
         </div>
         <div
           className="wp__filmShow__info__bottom collapse"
-          id={"collapseInfo" + item.maPhim}
+          id={"collapseInfo" + item?.maPhim}
         >
           <h4>2D Digital</h4>
-          <ListSessionHomeRight lstLichChieu={item.lstLichChieuTheoPhim} />
+          <ListSessionHomeRight lstLichChieu={item?.lstLichChieuTheoPhim} />
         </div>
       </div>
     </div>

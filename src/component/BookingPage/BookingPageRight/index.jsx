@@ -115,17 +115,17 @@ function BookingPageRight(props) {
                 Phone
               </label>
             </div>
-            {errors.phone && errors.phone.type === "minLength" && (
+            {errors.phone && errors.phone?.type === "minLength" && (
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Phone has minLength of 8!
               </p>
             )}
-            {errors.phone && errors.phone.type === "required" && (
+            {errors.phone && errors.phone?.type === "required" && (
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Phone is required!
               </p>
             )}
-            {errors.phone && errors.phone.type === "pattern" && (
+            {errors.phone && errors.phone?.type === "pattern" && (
               <p style={{ color: "red", marginTop: "7px" }}>
                 *Phone start 09|03|07!
               </p>

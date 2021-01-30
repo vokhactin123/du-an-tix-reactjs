@@ -7,13 +7,15 @@ import { getInfoDetailFilmRequest } from "../../redux/actions/Detail";
 import { useParams } from "react-router-dom";
 import Loading from "../../component/Loading";
 function Detail(props) {
-  console.log(props);
+  // console.log(props);
   let dispatch = useDispatch();
   let { idFilm } = useParams();
   // console.log(idFilm);
   useEffect(() => {
-    dispatch(getInfoDetailFilmRequest(idFilm));
-    window.scrollTo(0, 0);
+    if (idFilm !== undefined) {
+      dispatch(getInfoDetailFilmRequest(idFilm));
+      window.scrollTo(0, 0);
+    }
   }, []);
   let isLoading = useSelector((state) => {
     return state.CommonReducer.isLoading;
