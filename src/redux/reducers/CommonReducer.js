@@ -3,8 +3,7 @@ const initialState = {
   count: 0,
 };
 const CommonReducer = (state = initialState, action) => {
-  let { type } = action; // bóc tách ES6
-  switch (type) {
+  switch (action.type) {
     case "START_LOADING": {
       state.count++;
       if (state.count === 1) {
