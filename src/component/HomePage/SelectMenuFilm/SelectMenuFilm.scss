@@ -17,13 +17,13 @@
         }
 
     }
-        .animate {
-        animation-duration: 0.3s;
-        -webkit-animation-duration: 0.3s;
-        animation-fill-mode: both;
-        -webkit-animation-fill-mode: both;
-      }
-            .slideIn {
+    //     .animate {
+    //     animation-duration: 0.3s;
+    //     animation-duration: 0.3s;
+    //     animation-fill-mode: both;
+    //     -webkit-animation-fill-mode: both;
+    //   }
+        .slideIn {
         animation-name: slideIn;
       }
         .dropdown-toggle--fixed.focus, .dropdown-toggle--fixed:focus {
