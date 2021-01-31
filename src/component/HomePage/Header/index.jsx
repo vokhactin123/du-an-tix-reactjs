@@ -6,13 +6,15 @@ import { GetInfoByLogout } from "../../../redux/actions/User";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { handleReset } from "../../../redux/actions/GetListMovie";
 import SidebarResponsive from "../SidebarResponsive";
-
+import swal from "sweetalert";
 function Header(props) {
   // console.log(props);
   let currentURL = useRouteMatch();
+  console.log(currentURL);
   let [showSidebar, setShowSidebar] = useState(false);
   let history = useHistory();
   let dispatch = useDispatch();
+
   let user = useSelector((state) => {
     return state.UserReducer.infoUser;
   });
@@ -40,15 +42,32 @@ function Header(props) {
     }
   }
   function handleLogout() {
-    window.localStorage.removeItem("user");
-    let user = "";
-    dispatch(handleReset(0));
-    dispatch(GetInfoByLogout(user));
-    history.push("/");
+    swal({
+      text: "Do you want to logout?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((ress) => {
+      if (ress) {
+        window.localStorage.removeItem("user");
+        let user = "";
+        // dispatch(handleReset(0));
+        dispatch(GetInfoByLogout(user));
+        history.push("/");
+        setHideSidebar(false);
+        swal("click to the button", "logout successfully!", "success");
+      }
+    });
+    // window.localStorage.removeItem("user");
+    // let user = "";
+    // // dispatch(handleReset(0));
+    // dispatch(GetInfoByLogout(user));
+    // history.push("/");
+    // setHideSidebar(false);
   }
   function handleBackHome() {
     console.log(currentURL);
-    if (currentURL !== "/" || currentURL !== "/Home") {
+    if (currentURL.url !== "/" || currentURL.url !== "/Home") {
       dispatch(handleReset(0));
     }
     scroll.scrollToTop({ duration: 300, smooth: true });
@@ -67,13 +86,23 @@ function Header(props) {
       animationSidebar(showSidebar);
     }
   });
+  function handleBackHomeTix() {
+    dispatch(handleReset(0));
+    history.push("/");
+  }
+  function renderArrowBack() {
+    if (currentURL.url !== "/" && currentURL.url !== "/Home") {
+      return (
+        <Link className="back_page" to="/" onClick={handleBackHomeTix}>
+          <i className="fas fa-chevron-left" />
+        </Link>
+      );
+    }
+  }
   return (
     <header className="wp-header">
       <div className="header container-fluid">
-        <a className="back_page" href="true">
-          <i className="fas fa-chevron-left" />
-        </a>
-        <a className="back_page" href="true" />
+        {renderArrowBack()}
         <div className="header__logo">
           <NavLink exact={true} to="/" onClick={handleBackHome}>
             <img

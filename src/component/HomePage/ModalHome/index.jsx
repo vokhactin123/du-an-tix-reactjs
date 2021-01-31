@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./ModalHome.scss";
 import { closeTrailer } from "../../../redux/actions/GetListMovie";
@@ -10,9 +10,15 @@ function ModalHome(props) {
   function handleCloseTrailer() {
     dispatch(closeTrailer(true));
   }
+  let [heightVideo, setHeightVideo] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth > 414.4) {
+      setHeightVideo(true);
+    }
+  });
   return (
     <div
-      className="modal modal--fixed fade"
+      className="modal modal--fixedHome fade"
       id="exampleModalCenterHome"
       tabIndex={-1}
       role="dialog"
@@ -36,7 +42,7 @@ function ModalHome(props) {
             <iframe
               title="frameHome"
               width="100%"
-              height={550}
+              height={heightVideo ? 550 : 250}
               src={trailer ? trailer : ""}
               frameBorder={0}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

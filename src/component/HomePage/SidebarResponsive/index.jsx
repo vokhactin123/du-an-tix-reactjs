@@ -4,10 +4,12 @@ import { RiSlideshow3Fill } from "react-icons/ri";
 import { MdTheaters } from "react-icons/md";
 import { MdSettingsApplications } from "react-icons/md";
 import { BiNews } from "react-icons/bi";
+import { BiLogOut } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { GetInfoByLogout } from "../../../redux/actions/User";
 import { useHistory } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
+import swal from "sweetalert";
 function SidebarResponsive(props) {
   let { activeSidebar, setHideSidebar } = props;
   function HideSidebar() {
@@ -16,12 +18,28 @@ function SidebarResponsive(props) {
   let history = useHistory();
   let dispatch = useDispatch();
   function handleLogout() {
-    window.localStorage.removeItem("user");
-    let user = "";
-    // dispatch(handleReset(0));
-    dispatch(GetInfoByLogout(user));
-    history.push("/");
-    setHideSidebar(false);
+    swal({
+      text: "Do you want to logout?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((ress) => {
+      if (ress) {
+        window.localStorage.removeItem("user");
+        let user = "";
+        // dispatch(handleReset(0));
+        dispatch(GetInfoByLogout(user));
+        history.push("/");
+        setHideSidebar(false);
+        swal("click to the button", "logout successfully!", "success");
+      }
+    });
+    // window.localStorage.removeItem("user");
+    // let user = "";
+    // // dispatch(handleReset(0));
+    // dispatch(GetInfoByLogout(user));
+    // history.push("/");
+    // setHideSidebar(false);
   }
   return (
     <React.Fragment>
@@ -50,7 +68,7 @@ function SidebarResponsive(props) {
             />
           </li>
           <li className="mb-5">
-            <RiSlideshow3Fill size="2em" />
+            <RiSlideshow3Fill size="1.5em" />
             <Link
               className="ml-2"
               activeClass="activeCat"
@@ -67,7 +85,7 @@ function SidebarResponsive(props) {
             </Link>
           </li>
           <li className="mb-5">
-            <MdTheaters size="2em" />
+            <MdTheaters size="1.5em" />
             <Link
               className="ml-2"
               activeClass="activeCat"
@@ -82,7 +100,7 @@ function SidebarResponsive(props) {
             </Link>
           </li>
           <li className="mb-5">
-            <BiNews size="2em" />
+            <BiNews size="1.5em" />
             <Link
               className="ml-2"
               activeClass="activeCat"
@@ -97,7 +115,7 @@ function SidebarResponsive(props) {
             </Link>
           </li>
           <li className="mb-5">
-            <MdSettingsApplications size="2em" />
+            <MdSettingsApplications size="1.5em" />
             <Link
               className="ml-2"
               activeClass="activeCat"
@@ -112,7 +130,10 @@ function SidebarResponsive(props) {
             </Link>
           </li>
           <li className="mb-5">
-            <a onClick={handleLogout}>Đăng xuất</a>
+            <BiLogOut size="1.5em" />
+            <a className="ml-2" onClick={handleLogout}>
+              Đăng xuất
+            </a>
           </li>
         </ul>
       </div>

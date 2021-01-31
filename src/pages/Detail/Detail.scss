@@ -51,6 +51,12 @@
     }
   }
   @media screen and (max-width: 576px) {
+    .fix__row__responsive{
+      margin: 0px;
+    }
+    .info_nav_right{
+      margin: 0px -15px;
+    }
     .content{
       overflow:hidden !important;
     }

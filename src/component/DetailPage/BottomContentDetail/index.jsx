@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import InfoFilmDetail from "../InfoFilmDetail";
 import ShowtimeFilmDetail from "../ShowtimeFilmDetail";
 import VoteFilmDetail from "../VoteFilmDetail";
 import "./BottomContentDetail.scss";
+import format from "date-format";
 function activeShowtime(active) {
   if (active) {
     return true;
@@ -14,14 +16,18 @@ function BottomContentDetail(props) {
     activeShowtime(true);
   }, []);
   let active = activeShowtime(true);
+  let infoFilm = useSelector((state) => {
+    return state.DetailReducer.infoFilm;
+  });
   return (
     <div className="bottom_content">
       <div className="wp_info_film">
         <div className="info_film">
-          <p className="info_film__content">14.02.2020</p>
           <p className="info_film__content">
-            Sắc Đẹp Dối Trá - The Drama Queen (C16)
+            {" "}
+            {format("dd-MM-yyyy", new Date(infoFilm?.ngayKhoiChieu))}
           </p>
+          <p className="info_film__content">{infoFilm?.tenPhim}</p>
           <p className="info_film__content">91 phút - 0 IMDb - 2D/Digital</p>
         </div>
       </div>

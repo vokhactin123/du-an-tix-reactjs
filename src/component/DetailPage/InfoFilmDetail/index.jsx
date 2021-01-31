@@ -12,7 +12,7 @@ function InfoFilmDetail(props) {
       id="nav-info"
       role="tabpanel"
     >
-      <div className="row">
+      <div className="row fix__row__responsive">
         <div className="col-md-6 info_nav_left">
           <div className="row rowLeftInfo_nav">
             <p className="contentTitle_nav">Ngày công chiếu</p>

@@ -17,6 +17,15 @@
         transition: opacity 0.9s, visibility 0.9s;
         transition: 0.5s all;
       }
+      iframe#iframe-trailer.active__showVideoRes {
+        position: absolute;
+        z-index: 999;
+        opacity: 1 !important;
+        // visibility: hidden;
+        visibility: visible !important;
+        transition: opacity 0.9s, visibility 0.9s;
+        transition: 0.5s all;
+      }
       a.play_responsive {
         position: absolute;
         top: 50%;

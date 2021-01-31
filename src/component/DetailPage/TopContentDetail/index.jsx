@@ -25,6 +25,7 @@ function TopContentDetail(props) {
   let infoFilm = useSelector((state) => {
     return state.DetailReducer.infoFilm;
   });
+  let [showVideoRes, setShowVideoRes] = useState(false);
   function handleClose(data) {
     setActiveModal(data);
   }
@@ -45,6 +46,9 @@ function TopContentDetail(props) {
     }
     return arrStar;
   }
+  function handleShowVideo() {
+    setShowVideoRes(true);
+  }
   return (
     <div className="top_content">
       <div className="top_content__responsiveDetail">
@@ -52,7 +56,7 @@ function TopContentDetail(props) {
           className="play_responsive"
           // id="play_res_id"
           href="#"
-          // onclick="ShowvideoResponsive()"
+          onClick={handleShowVideo}
         >
           <img
             src="../../../images/play-video.png"
@@ -61,6 +65,7 @@ function TopContentDetail(props) {
           />
         </a>
         <iframe
+          className={showVideoRes ? `active__showVideoRes` : ""}
           title="myFrame"
           id="iframe-trailer"
           width="100%"
