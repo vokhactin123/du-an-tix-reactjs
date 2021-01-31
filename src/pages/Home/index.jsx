@@ -23,8 +23,8 @@ function Home(props) {
       <div className="wrapper" id="wp-content">
         {/* {isLoading ? <Loading /> : ""} */}
         <Banner />
-        {/* <SelectMenu />
-        <ListTabFilm />
+        <SelectMenu />
+        {/* <ListTabFilm />
         {closeTrailer ? "" : <ModalHome />}
         <CinemaSysHome /> */}
         <Application />
