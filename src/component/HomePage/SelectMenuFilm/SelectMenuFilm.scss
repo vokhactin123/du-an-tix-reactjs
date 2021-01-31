@@ -1,32 +1,31 @@
 .wp__titleFilmDropdown{
-    padding: 0px 10px;
-    border-right: 1px solid #f2f2f2;
+    // padding: 0px 10px;
+    // border-right: 1px solid #f2f2f2;
     width: 30%;
-        .dropdown-toggle--fixed{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        span{
-            font-weight: 600;
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.87);
-        }
-        i{
-            color: #cacaca;
-        }
+    //     .dropdown-toggle--fixed{
+    //     width: 100%;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     span{
+    //         font-weight: 600;
+    //         font-size: 14px;
+    //         color: rgba(0, 0, 0, 0.87);
+    //     }
+    //     i{
+    //         color: #cacaca;
+    //     }
 
-    }
-        .animate {
-        animation-duration: 0.3s;
-        animation-duration: 0.3s;
-        animation-fill-mode: both;
-        -webkit-animation-fill-mode: both;
-      }
-        .slideIn {
-        animation-name: slideIn;
-
-      }
+    // }
+    //     .animate {
+    //     animation-duration: 0.3s;
+    //     animation-duration: 0.3s;
+    //     animation-fill-mode: both;
+    //     -webkit-animation-fill-mode: both;
+    //   }
+    //     .slideIn {
+    //     animation-name: slideIn;
+    //   }
         .dropdown-toggle--fixed.focus, .dropdown-toggle--fixed:focus {
         box-shadow:none !important;
     }
@@ -77,16 +76,16 @@
     }
 
 }
-@keyframes slideIn {
-    0% {
-      transform: translateY(16px);
-      opacity: 0;
-    }
-    100% {
-      transform:translateY(-3px);
-      opacity: 1;
-    }
-  }
+// @keyframes slideIn {
+//     0% {
+//       transform: translateY(16px);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform:translateY(-3px);
+//       opacity: 1;
+//     }
+//   }
 }
 
 //  .dropdown--fixed{

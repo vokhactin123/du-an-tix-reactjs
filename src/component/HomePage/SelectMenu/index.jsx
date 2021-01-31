@@ -61,9 +61,9 @@ function SelectMenu(props) {
   return (
     <section className="selectMenu">
       <SelectMenuFilm getIdFilm={getIdFilm} />
-      {/* <SelectMenuMovieTheater />
+      <SelectMenuMovieTheater />
       <SelectMenuDate />
-      <SelectMenuTime /> */}
+      <SelectMenuTime />
       {renderBtnBookingTicket()}
     </section>
   );

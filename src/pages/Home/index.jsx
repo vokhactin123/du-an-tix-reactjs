@@ -21,12 +21,12 @@ function Home(props) {
   function renderHome() {
     return (
       <div className="wrapper" id="wp-content">
-        {/* {isLoading ? <Loading /> : ""} */}
+        {isLoading ? <Loading /> : ""}
         <Banner />
         <SelectMenu />
-        {/* <ListTabFilm />
+        <ListTabFilm />
         {closeTrailer ? "" : <ModalHome />}
-        <CinemaSysHome /> */}
+        <CinemaSysHome />
         <Application />
       </div>
     );

@@ -14,21 +14,21 @@ function SelectMenuFilm(props) {
   const listMovie = useSelector((state) => {
     return state.SelectMenuReducer.listFilm;
   });
-  //   function showListMenuFilm() {
-  //     // console.log(listMovie);
-  //     if (listMovie?.length > 0) {
-  //       // console.log(listMovie);
-  //       return listMovie.map((item, index) => {
-  //         return (
-  //           <SelectMenuFilmItem
-  //             item={item}
-  //             key={index}
-  //             getIdFilm={props.getIdFilm}
-  //           />
-  //         );
-  //       });
-  //     }
-  //   }
+  function showListMenuFilm() {
+    // console.log(listMovie);
+    if (listMovie?.length > 0) {
+      // console.log(listMovie);
+      return listMovie.map((item, index) => {
+        return (
+          <SelectMenuFilmItem
+            item={item}
+            key={index}
+            getIdFilm={props.getIdFilm}
+          />
+        );
+      });
+    }
+  }
   return (
     <div className="dropdown dropdown--fixed wp__titleFilmDropdown">
       <button
@@ -47,7 +47,7 @@ function SelectMenuFilm(props) {
         className="dropdown-menu animate slideIn dr-menu--listfilm shadow"
         aria-labelledby="dropdownMenuButton"
       >
-        {/* {showListMenuFilm()} */}
+        {showListMenuFilm()}
       </ul>
     </div>
   );
