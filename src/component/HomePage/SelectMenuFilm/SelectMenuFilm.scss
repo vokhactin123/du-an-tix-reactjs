@@ -25,6 +25,7 @@
       }
         .slideIn {
         animation-name: slideIn;
+
       }
         .dropdown-toggle--fixed.focus, .dropdown-toggle--fixed:focus {
         box-shadow:none !important;
@@ -76,17 +77,18 @@
     }
 
 }
+@keyframes slideIn {
+    0% {
+      transform: translateY(16px);
+      opacity: 0;
+    }
+    100% {
+      transform:translateY(-3px);
+      opacity: 1;
+    }
+  }
 }
-    // @keyframes slideIn {
-    //     0% {
-    //       transform: translateY(16px);
-    //       opacity: 0;
-    //     }
-    //     100% {
-    //       transform:translateY(-3px);
-    //       opacity: 1;
-    //     }
-    //   }
+
 //  .dropdown--fixed{
 //     padding: 0px 10px;
 //     border-right: 1px solid #f2f2f2;
