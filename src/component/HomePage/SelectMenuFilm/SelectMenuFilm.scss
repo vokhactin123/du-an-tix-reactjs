@@ -69,23 +69,23 @@
  .dropdown--fixed{
     padding: 0px 10px;
     border-right: 1px solid #f2f2f2;
-    .animate {
-        animation-duration: 0.3s;
-        -webkit-animation-duration: 0.3s;
-        animation-fill-mode: both;
-        -webkit-animation-fill-mode: both;
-      }
-    @keyframes slideIn {
-        0% {
-          transform: translateY(16px);
-          opacity: 0;
-        }
-        100% {
-          transform:translateY(-3px);
-          opacity: 1;
-        }
-      }
-      .slideIn {
-        animation-name: slideIn;
-      }
+    // .animate {
+    //     animation-duration: 0.3s;
+    //     -webkit-animation-duration: 0.3s;
+    //     animation-fill-mode: both;
+    //     -webkit-animation-fill-mode: both;
+    //   }
+    // @keyframes slideIn {
+    //     0% {
+    //       transform: translateY(16px);
+    //       opacity: 0;
+    //     }
+    //     100% {
+    //       transform:translateY(-3px);
+    //       opacity: 1;
+    //     }
+    //   }
+    //   .slideIn {
+    //     animation-name: slideIn;
+    //   }
 }
