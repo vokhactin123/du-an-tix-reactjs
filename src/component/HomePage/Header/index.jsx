@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 import "./header.scss";
 import { GetInfoByLogout } from "../../../redux/actions/User";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { handleReset } from "../../../redux/actions/GetListMovie";
+import SidebarResponsive from "../SidebarResponsive";
 
 function Header(props) {
   // console.log(props);
   let currentURL = useRouteMatch();
-
+  let [showSidebar, setShowSidebar] = useState(false);
   let history = useHistory();
   let dispatch = useDispatch();
   let user = useSelector((state) => {
@@ -52,6 +53,20 @@ function Header(props) {
     }
     scroll.scrollToTop({ duration: 300, smooth: true });
   }
+  function showMenuResponsive() {
+    setShowSidebar(true);
+  }
+  function animationSidebar(showSidebar) {
+    return showSidebar;
+  }
+  function setHideSidebar(data) {
+    setShowSidebar(data);
+  }
+  useEffect(() => {
+    if (showSidebar) {
+      animationSidebar(showSidebar);
+    }
+  });
   return (
     <header className="wp-header">
       <div className="header container-fluid">
@@ -123,56 +138,15 @@ function Header(props) {
           </ul>
         </div>
         <div className="header__wp-content">{renderUser()}</div>
-        <div
-          className="header__menu_dropdown "
-          // onclick="showMenu()"
-        >
+        <div className="header__menu_dropdown " onClick={showMenuResponsive}>
           <i className="fas fa-bars " />
         </div>
       </div>
-      <div className="sidebarMenu " id="sidebarDrop">
-        <ul className="list-unstyled list-dropdown">
-          <li className="mb-5 mt-3">
-            <div className="wp-info-drop">
-              <a href="true">
-                <img
-                  src="../../../images/anh-dai-dien.png"
-                  className="img-fluid"
-                  alt="anh dai dien"
-                />
-              </a>
-              <span>Võ Khắc Tín</span>
-            </div>
-            <i
-              className="fas fa-angle-right"
-              id="icon-menudrop"
-              // onclick="hideMenu()"
-            />
-          </li>
-          <li className="mb-5">
-            <a href="true">Lịch chiếu</a>
-          </li>
-          <li className="mb-5">
-            <a href="true">Cụm rạp</a>
-          </li>
-          <li className="mb-5">
-            <a href="true">Tin tức</a>
-          </li>
-          <li className="mb-5">
-            <a href="true">Ứng dụng</a>
-          </li>
-          <li className="mb-5">
-            <a href="true">Hà Nội</a>
-          </li>
-          <li className="mb-5">
-            <a>Đăng xuất</a>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="overlay"
-        id="overlayId"
-        // onclick="hideMenuByOverLay()"
+      <SidebarResponsive
+        setHideSidebar={setHideSidebar}
+        activeSidebar={
+          animationSidebar(showSidebar) ? animationSidebar(showSidebar) : ""
+        }
       />
     </header>
   );

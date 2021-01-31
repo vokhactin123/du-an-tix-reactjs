@@ -101,7 +101,7 @@ function Register(props) {
         </div>
         <div className="row my-5">
           <div className="col-md-6">
-            <div className={style.form__group}>
+            <div className={(style.form__group, style.field)}>
               <input
                 type="text"
                 className={style.form__field}

@@ -158,11 +158,13 @@
         &:first-child {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           a img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
+          }
+          span{
+            margin: 0px 100px 0px 10px;
           }
         }
       }
@@ -170,7 +172,7 @@
   }
   .sidebarMenu.active__sidebarHeader {
     transition: 0.5s right;
-    right: 0px;
+    right: -100px;
     top: 0px;
     z-index: 101;
     max-height: 100%;
@@ -184,6 +186,9 @@
     display: none;
     min-height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
+  }
+  .overlay.active__overlay{
+    display: block;
   }
   @media screen and (max-width: 900px) {
     .header__wp-list-group ul.list-item {

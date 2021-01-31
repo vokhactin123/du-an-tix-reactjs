@@ -10,9 +10,6 @@ const UserReducer = (state = initialState, action) => {
     case "SAVE_USER_LOGOUT": {
       return { ...state, infoUser: action.payload };
     }
-    case "SHOW_ERROR_MESS_BY_REG": {
-      return { ...state, messError: action.payload };
-    }
     case "RESET_ERR_MESS": {
       return { ...state, messError: action.payload };
     }

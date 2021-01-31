@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 function handleUserLoginRequest(user, history) {
   return (dispatch) => {
     axios({
@@ -7,15 +8,13 @@ function handleUserLoginRequest(user, history) {
       data: user,
     })
       .then(function (ress) {
-        // dispatch(GetListCinemaBrandSuccess(ress.data));
         localStorage.setItem("user", JSON.stringify(ress.data));
         dispatch(saveUserLogin(ress.data.taiKhoan));
         history.push("/");
-        // console.log(ress.data);
       })
       .catch(function (err) {
-        dispatch(saveUserLoginFailed(err));
-        // console.log(err);
+        console.log(err.response.data);
+        swal("click button to close!", `${err.response.data}`, "error");
       });
   };
 }
@@ -23,12 +22,6 @@ function saveUserLogin(data) {
   return {
     type: "SAVE_USER_LOGIN_SUCCESS",
     payload: data,
-  };
-}
-function saveUserLoginFailed(err) {
-  return {
-    type: "SAVE_USER_LOGIN_FAILED",
-    payload: err,
   };
 }
 function GetInfoByLogout(data) {
@@ -51,16 +44,8 @@ function RegMemberFromForm(user, history) {
         history.goBack();
       })
       .catch(function (err) {
-        console.log(err.response.data);
-        dispatch(showErrUserReg(err.response.data));
-        // console.log(err);
+        swal("click the button to close!", `${err.response.data}`, "error");
       });
-  };
-}
-function showErrUserReg(err) {
-  return {
-    type: "SHOW_ERROR_MESS_BY_REG",
-    payload: err,
   };
 }
 function ResetErMess(err) {

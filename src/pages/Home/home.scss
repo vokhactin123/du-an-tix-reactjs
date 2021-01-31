@@ -73,6 +73,9 @@ p{
           display: none;
         }
         .wrapper__tab{
+          .tab__content__filmShow{
+            width: 100%;
+          }
           box-shadow: none !important;
           margin: 0px 10px;
           flex-direction: column;
