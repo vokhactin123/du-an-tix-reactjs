@@ -1,53 +1,53 @@
-import React from "react";
-import ListSessionHomeRight from "../ListSessionHomeRight";
-import "./CinemaSysHomeRightItem.scss";
-import format from "date-format";
-function CinemaSysHomeRightItem(props) {
-  let { item } = props;
-  console.log(item);
-  // function filterShowtime() {
-  //   let date = new Date();
-  //   return item?.lstLichChieuTheoPhim.filter((item) => {
-  //     return (
-  //       format("dd/MM/yyyy", new Date(item.ngayChieuGioChieu)) >=
-  //       format("dd/MM/yyyy", date)
-  //     );
-  //   });
-  // }
-  // console.log(filterShowtime());
-  return (
-    <div className="item__filmShow">
-      <div className="wp__filmShow__info__item">
-        <div
-          className="wp__filmShow__info__top"
-          data-toggle="collapse"
-          href={"#collapseInfo" + item?.maPhim}
-        >
-          <a className="wp__thumb__filmShow">
-            <img
-              src={item?.hinhAnh}
-              alt="tiec trang mau"
-              className="img-fluid"
-            />
-          </a>
-          <div className="wp__text__filmShow">
-            <p>
-              <span className="code__filmShow">C18</span>
-              {item?.tenPhim}
-            </p>
-            <p>100 phút - TIX 9.3 - IMDb 0</p>
-          </div>
-        </div>
-        <div
-          className="wp__filmShow__info__bottom collapse"
-          id={"collapseInfo" + item?.maPhim}
-        >
-          <h4>2D Digital</h4>
-          <ListSessionHomeRight lstLichChieu={item?.lstLichChieuTheoPhim} />
-        </div>
-      </div>
-    </div>
-  );
-}
+// import React from "react";
+// import ListSessionHomeRight from "../ListSessionHomeRight";
+// import "./CinemaSysHomeRightItem.scss";
+// import format from "date-format";
+// function CinemaSysHomeRightItem(props) {
+//   let { item } = props;
+//   console.log(item);
+//   // function filterShowtime() {
+//   //   let date = new Date();
+//   //   return item?.lstLichChieuTheoPhim.filter((item) => {
+//   //     return (
+//   //       format("dd/MM/yyyy", new Date(item.ngayChieuGioChieu)) >=
+//   //       format("dd/MM/yyyy", date)
+//   //     );
+//   //   });
+//   // }
+//   // console.log(filterShowtime());
+//   return (
+//     <div className="item__filmShow">
+//       <div className="wp__filmShow__info__item">
+//         <div
+//           className="wp__filmShow__info__top"
+//           data-toggle="collapse"
+//           href={"#collapseInfo" + item?.maPhim}
+//         >
+//           <a className="wp__thumb__filmShow">
+//             <img
+//               src={item?.hinhAnh}
+//               alt="tiec trang mau"
+//               className="img-fluid"
+//             />
+//           </a>
+//           <div className="wp__text__filmShow">
+//             <p>
+//               <span className="code__filmShow">C18</span>
+//               {item?.tenPhim}
+//             </p>
+//             <p>100 phút - TIX 9.3 - IMDb 0</p>
+//           </div>
+//         </div>
+//         <div
+//           className="wp__filmShow__info__bottom collapse"
+//           id={"collapseInfo" + item?.maPhim}
+//         >
+//           <h4>2D Digital</h4>
+//           <ListSessionHomeRight lstLichChieu={item?.lstLichChieuTheoPhim} />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
-export default React.memo(CinemaSysHomeRightItem);
+// export default React.memo(CinemaSysHomeRightItem);

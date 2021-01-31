@@ -1,156 +1,156 @@
-a{
-    text-decoration: none !important;
-}
-.film{
-    display: inline-block;
-    width: 215px;
-    height: 430px;
-    position: relative;
-    .wp__type__thumb{
-        position: absolute;
-        z-index: 999;
-        top: -14px;
-        left: -20px;
-        width: 155px;
-    }
-    .wp__link__film{
-        .showtime__box{
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            border: 1px solid #1f2e46;
-            border-radius: 4px;  
-            position: absolute;
-            font-size: 16px;
-            z-index: 99;
-            width: 65px;
-            height: 45px;
-            background: rgba(12,27,54,.8);
-            color: white;
-            bottom: 10px;
-            right: 10px;
-        }
-        .rating__box{ 
-            padding:0px 5px 46px 5px;
-            font-weight: bold;
-            border: 1px solid #1f2e46;
-            border-radius: 4px;  
-            position: absolute;
-            font-size: 19px;
-            z-index: 99;
-            width: 55px;
-            height: 45px;
-            background: rgba(12,27,54,.8);
-            color: white;
-            top: 10px;
-            right: 10px;
-        }
-        position: relative;
-        .hoverInfo{
-            button{
-                width: 50px;
-                height: 50px;
-                outline: none;
-                border: none;
-                background: 0 0;
-                transition: 0.5s all;
-                &:hover{
-                    transition: 0.5s all;
-                    transform: scale(1.1);
-                }
-            }
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-        }
-        .overlay__item{
-            opacity: 0;
-            visibility: hidden;
-            top: 0;
-            left: 0;
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top,#000,transparent 100%);
-        }
-        a.link__film{
-            display: block;
-            position: relative;
-            display: block;
-            overflow: hidden;
-            height: 307px;
-            border-radius: 4px;
-        }
-    }
-    .info__film{
-        position: relative;
-        padding-top: 10px;
-        .timeFilm{
-            font-weight: 600;
-            color: #2b2929c9;
-            font-size: 13px;
-        }
-        .nameFilm{
-            white-space:nowrap;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: rgba(0, 0, 0, 0.87);
-            font-weight: 600 !important;
-            line-height: 20px;
-            font-size: 16px;
-            height: 42px;
-            .color__green{
-                background-color: #00ac4d !important;
-            }
-        }
-        .nameFilm .codeFilm{
-            letter-spacing: 2px;
-            font-size: 14px;
-            border-radius: 3px;
-            padding: 3px 7px;
-            display: inline-block;
-            background-color: red;
-            color: white;
-            margin-right: 4px;
-        }
-        .showHover{
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.5s linear;
-            bottom: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            position: absolute;
-            border-radius: 3px;
-            width: 100%;
-            background: linear-gradient(104deg, rgba(213,15,15,0.9923319669664741) 0%, rgba(255,80,0,1) 53%);
-            text-align: center;
-        a{
+// a{
+//     text-decoration: none !important;
+// }
+// .film{
+//     display: inline-block;
+//     width: 215px;
+//     height: 430px;
+//     position: relative;
+//     .wp__type__thumb{
+//         position: absolute;
+//         z-index: 999;
+//         top: -14px;
+//         left: -20px;
+//         width: 155px;
+//     }
+//     .wp__link__film{
+//         .showtime__box{
+//             justify-content: center;
+//             align-items: center;
+//             font-weight: bold;
+//             border: 1px solid #1f2e46;
+//             border-radius: 4px;  
+//             position: absolute;
+//             font-size: 16px;
+//             z-index: 99;
+//             width: 65px;
+//             height: 45px;
+//             background: rgba(12,27,54,.8);
+//             color: white;
+//             bottom: 10px;
+//             right: 10px;
+//         }
+//         .rating__box{ 
+//             padding:0px 5px 46px 5px;
+//             font-weight: bold;
+//             border: 1px solid #1f2e46;
+//             border-radius: 4px;  
+//             position: absolute;
+//             font-size: 19px;
+//             z-index: 99;
+//             width: 55px;
+//             height: 45px;
+//             background: rgba(12,27,54,.8);
+//             color: white;
+//             top: 10px;
+//             right: 10px;
+//         }
+//         position: relative;
+//         .hoverInfo{
+//             button{
+//                 width: 50px;
+//                 height: 50px;
+//                 outline: none;
+//                 border: none;
+//                 background: 0 0;
+//                 transition: 0.5s all;
+//                 &:hover{
+//                     transition: 0.5s all;
+//                     transform: scale(1.1);
+//                 }
+//             }
+//             opacity: 0;
+//             visibility: hidden;
+//             position: absolute;
+//             top: 50% !important;
+//             left: 50% !important;
+//             transform: translate(-50%, -50%) !important;
+//         }
+//         .overlay__item{
+//             opacity: 0;
+//             visibility: hidden;
+//             top: 0;
+//             left: 0;
+//             display: block;
+//             position: absolute;
+//             width: 100%;
+//             height: 100%;
+//             background: linear-gradient(to top,#000,transparent 100%);
+//         }
+//         a.link__film{
+//             display: block;
+//             position: relative;
+//             display: block;
+//             overflow: hidden;
+//             height: 307px;
+//             border-radius: 4px;
+//         }
+//     }
+//     .info__film{
+//         position: relative;
+//         padding-top: 10px;
+//         .timeFilm{
+//             font-weight: 600;
+//             color: #2b2929c9;
+//             font-size: 13px;
+//         }
+//         .nameFilm{
+//             white-space:nowrap;
+//             width: 100%;
+//             overflow: hidden;
+//             text-overflow: ellipsis;
+//             color: rgba(0, 0, 0, 0.87);
+//             font-weight: 600 !important;
+//             line-height: 20px;
+//             font-size: 16px;
+//             height: 42px;
+//             .color__green{
+//                 background-color: #00ac4d !important;
+//             }
+//         }
+//         .nameFilm .codeFilm{
+//             letter-spacing: 2px;
+//             font-size: 14px;
+//             border-radius: 3px;
+//             padding: 3px 7px;
+//             display: inline-block;
+//             background-color: red;
+//             color: white;
+//             margin-right: 4px;
+//         }
+//         .showHover{
+//             visibility: hidden;
+//             opacity: 0;
+//             transition: visibility 0s, opacity 0.5s linear;
+//             bottom: 10px;
+//             font-size: 20px;
+//             cursor: pointer;
+//             position: absolute;
+//             border-radius: 3px;
+//             width: 100%;
+//             background: linear-gradient(104deg, rgba(213,15,15,0.9923319669664741) 0%, rgba(255,80,0,1) 53%);
+//             text-align: center;
+//         a{
         
-            padding: 10px 0px;
-            display: block;
-        }
-        }
-    }
-    &:hover .hoverInfo{
-        visibility: visible;
-        opacity: 1;
-    }
-    &:hover .nameFilm, &:hover .timeFilm{
-        visibility: hidden;
-        opacity: 0;
-    }
-    &:hover .overlay__item{
-        visibility: visible;
-        opacity: 1;
-    }
-    &:hover .showHover{
-        visibility: visible;
-        opacity: 1;
-    }
-}
+//             padding: 10px 0px;
+//             display: block;
+//         }
+//         }
+//     }
+//     &:hover .hoverInfo{
+//         visibility: visible;
+//         opacity: 1;
+//     }
+//     &:hover .nameFilm, &:hover .timeFilm{
+//         visibility: hidden;
+//         opacity: 0;
+//     }
+//     &:hover .overlay__item{
+//         visibility: visible;
+//         opacity: 1;
+//     }
+//     &:hover .showHover{
+//         visibility: visible;
+//         opacity: 1;
+//     }
+// }
