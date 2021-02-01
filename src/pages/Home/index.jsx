@@ -36,7 +36,7 @@ function Home(props) {
         window.scrollTo({ top: 1460, behavior: "smooth" });
       }
     }
-  });
+  }, []);
   let closeTrailer = useSelector((state) => {
     return state.Movie.closeTrailer;
   });

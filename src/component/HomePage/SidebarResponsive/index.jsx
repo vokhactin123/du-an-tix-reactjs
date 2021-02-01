@@ -113,7 +113,11 @@ function SidebarResponsive(props) {
       );
     } else {
       return (
-        <NavLink to="/" onClick={() => handleBackHome(name)}>
+        <NavLink
+          className="ml-3 hover__eff"
+          to="/"
+          onClick={() => handleBackHome(name)}
+        >
           {name}
         </NavLink>
       );

@@ -54,7 +54,62 @@ function ResetErMess(err) {
     payload: err,
   };
 }
+function fetchInfoUserRequest(username) {
+  return (dispatch) => {
+    axios({
+      method: "POST",
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+      data: username,
+    })
+      .then(function (ress) {
+        console.log(ress.data);
+        dispatch(fetchInfoUserSuccess(ress.data));
+      })
+      .catch(function (err) {
+        dispatch(fetchInfoUserFailed(err));
+      });
+  };
+}
+function fetchInfoUserSuccess(data) {
+  return {
+    type: "FETCH_INFO_USER_BOOKING_SUCCESS",
+    payload: data,
+  };
+}
+function fetchInfoUserFailed(err) {
+  return {
+    type: "FETCH_INFO_USER_BOOKING_FAILED",
+    payload: err,
+  };
+}
+export { fetchInfoUserRequest };
 export { handleUserLoginRequest };
 export { GetInfoByLogout };
 export { RegMemberFromForm };
 export { ResetErMess };
+function updateUser(data, history) {
+  return (dispatch) => {
+    const userAdmin = JSON.parse(localStorage.getItem("user"));
+    axios({
+      method: "PUT",
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      data: data,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`,
+      },
+    })
+      .then((ress) => {
+        console.log(ress.data);
+        swal("", "UPDATE USER SUCCESS", "success").then(() => {
+          history.goBack();
+        });
+      })
+      .catch((err) => {
+        console.log(err.response?.data);
+        swal("", `${err.response?.data}`, "warning");
+      });
+  };
+}
+export { updateUser };

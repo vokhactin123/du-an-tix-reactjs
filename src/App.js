@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Detail from "./pages/Detail";
 import Layout from "./component/Layout";
+import InfoUser from "./pages/InfoUser";
+import UpdateUser from "./pages/UpdateUser";
 function App() {
   return (
     <>
@@ -25,6 +27,16 @@ function App() {
           <Route path="/Detail/:idFilm">
             <Layout>
               <Detail />
+            </Layout>
+          </Route>
+          <Route path="/Info">
+            <Layout>
+              <InfoUser />
+            </Layout>
+          </Route>
+          <Route path="/updateUser">
+            <Layout>
+              <UpdateUser />
             </Layout>
           </Route>
           <Route path="/Booking/:code">

@@ -122,9 +122,14 @@
           border-radius: 50%;
         }
         span.username {
-          font-size: 13px;
-          color: #9b9b9b;
-          font-weight: 600;
+          a{
+            font-size: 13px;
+            color: #424141;
+            font-weight: 600;
+            &:hover{
+              color: #818181;
+            }
+          }
         }
       }
     }

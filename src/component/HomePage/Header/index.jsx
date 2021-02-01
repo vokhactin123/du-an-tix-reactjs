@@ -25,7 +25,9 @@ function Header(props) {
       return (
         <div className="info-user">
           <img src="../../../images/anh-dai-dien.png" alt="username" />
-          <span className="username ml-1">{user.taiKhoan}</span>
+          <span className="username ml-1">
+            <NavLink to="/Info">{user.taiKhoan}</NavLink>{" "}
+          </span>
           <div className="info-user__logout" onClick={handleLogout}>
             Đăng xuất
           </div>

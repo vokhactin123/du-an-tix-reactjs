@@ -1,0 +1,133 @@
+.wp__info__customer{
+    width: 700px;
+    margin: 10px auto;
+    box-shadow: 1px 2px 5px 2px #dadada;
+    .wp__info__detail{
+        display: flex;
+        height: 330px !important;
+        .info__detail__left{
+            width: 350px;
+            .wp__avatar{
+                width:100%;
+                height: 400px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    // height: 270px;
+                }
+            }
+        }
+        .info__detail__right{
+            margin:0px 20px;
+            width: 100%;
+            .detail__top__home{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0px;
+                border-bottom: 2px solid #ececec;
+            }
+            .detail__bottom__home{
+                .wp__detail__customer{
+                    display: flex;
+                    margin: 10px 0px;
+                    p.title__info{
+                        font-size: 15px;
+                        font-weight: bold;
+                        width: 110px;
+                    }
+                    p.info__rs{
+                        margin-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+    .wp__history__booking{
+        display: none;
+        .table__style{
+            tr{
+                th.first__style{
+                    width: 240px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                td.first__style{
+                    p{
+                        width: 240px;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+         
+                }
+            }
+        }
+    }
+}
+.wp__switch{
+    display: inline-block !important;
+    position: relative;
+    left: 400px;
+}
+.wp__history__booking.active__history{
+    display: block;
+}
+.wp__info__detail.hide__detail{
+    display: none;
+}
+@media screen and (max-width: 576px ) {
+    .wp__avatar{
+        width: 150px !important;
+        height: 150px !important;
+        border-radius: 50% !important;
+    }
+    .detail__top__home{
+        flex-direction: column;
+        position: absolute;
+        left: 0px;
+        top: 255px;
+        z-index: 999;
+        border-bottom: none !important;
+    }
+    .info__detail__left{
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 240px !important;
+    }
+    .text__hello{
+        display: none;
+    }
+    .title__info__userHome{
+        display: block;
+        width: 120px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 10px 0px 10px 30px;
+    }
+    .wp__detail__customer{
+        flex-direction: column;
+    }
+    p.info__rs{
+        width: 200px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0px !important;
+    }
+    .wp__switch{
+        left: 180px;
+    }
+    .table-responsive-sm__fixed{
+        width: 414px;
+        overflow: scroll;
+    }
+    .table .thead-dark th{
+        font-size: 11px;
+    }
+    tbody{
+        font-size: 14px;
+    }
+}
