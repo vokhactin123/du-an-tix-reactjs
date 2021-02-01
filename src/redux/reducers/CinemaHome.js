@@ -105,23 +105,21 @@ const CinemaHome = (state = initialState, action) => {
         InfoShowTimeEachSys: emptyArrInfoShowTimeEachSys,
       };
     }
-    case "GET_LIST_FILM_CINEMA_BRAND_BY_ID":
-      {
-        if (state.InfoShowTimeEachSys.length > 0) {
-          let ListnewCumRap = [...state.InfoShowTimeEachSys];
-          let newCumRap = ListnewCumRap[0].lstCumRap?.filter((item, index) => {
-            return action.payload === item.maCumRap;
-          });
-          let film = [];
-          let maCumRap = action.payload;
-          if (newCumRap.length > 0) {
-            film = [...newCumRap[0].danhSachPhim];
-            maCumRap = newCumRap[0].maCumRap;
-          }
-          return { ...state, ListFilm: film, CinemaBrandSelected: maCumRap };
+    case "GET_LIST_FILM_CINEMA_BRAND_BY_ID": {
+      if (state.InfoShowTimeEachSys.length > 0) {
+        let ListnewCumRap = [...state.InfoShowTimeEachSys];
+        let newCumRap = ListnewCumRap[0].lstCumRap?.filter((item, index) => {
+          return action.payload === item.maCumRap;
+        });
+        let film = [];
+        let maCumRap = action.payload;
+        if (newCumRap.length > 0) {
+          film = [...newCumRap[0].danhSachPhim];
+          maCumRap = newCumRap[0].maCumRap;
         }
+        return { ...state, ListFilm: film, CinemaBrandSelected: maCumRap };
       }
-      break;
+    }
     default:
       return { ...state };
   }

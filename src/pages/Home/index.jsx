@@ -15,6 +15,28 @@ function Home(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  let nameMenu = useSelector((state) => {
+    return state.CommonReducer.nameMenu;
+  });
+  useEffect(() => {
+    if (isLoading === false && window.innerWidth > 414.4) {
+      if (nameMenu === "Lịch chiếu") {
+        window.scrollTo({ top: 700, behavior: "smooth" });
+      } else if (nameMenu === "Cụm rạp") {
+        window.scrollTo({ top: 1340, behavior: "smooth" });
+      } else if (nameMenu === "Ứng dụng") {
+        window.scrollTo({ top: 2000, behavior: "smooth" });
+      }
+    } else if (isLoading === false && window.innerWidth <= 414.4) {
+      if (nameMenu === "Lịch chiếu") {
+        window.scrollTo({ top: 180, behavior: "smooth" });
+      } else if (nameMenu === "Cụm rạp") {
+        window.scrollTo({ top: 840, behavior: "smooth" });
+      } else if (nameMenu === "Ứng dụng") {
+        window.scrollTo({ top: 1460, behavior: "smooth" });
+      }
+    }
+  });
   let closeTrailer = useSelector((state) => {
     return state.Movie.closeTrailer;
   });

@@ -7,6 +7,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import { handleReset } from "../../../redux/actions/GetListMovie";
 import SidebarResponsive from "../SidebarResponsive";
 import swal from "sweetalert";
+import { handleGetNameMenu } from "../../../redux/actions/GetListMovie";
 function Header(props) {
   // console.log(props);
   let currentURL = useRouteMatch();
@@ -58,17 +59,12 @@ function Header(props) {
         swal("click to the button", "logout successfully!", "success");
       }
     });
-    // window.localStorage.removeItem("user");
-    // let user = "";
-    // // dispatch(handleReset(0));
-    // dispatch(GetInfoByLogout(user));
-    // history.push("/");
-    // setHideSidebar(false);
   }
-  function handleBackHome() {
+  function handleBackHome(name) {
     console.log(currentURL);
     if (currentURL.url !== "/" || currentURL.url !== "/Home") {
       dispatch(handleReset(0));
+      dispatch(handleGetNameMenu(name));
     }
     scroll.scrollToTop({ duration: 300, smooth: true });
   }
@@ -99,12 +95,36 @@ function Header(props) {
       );
     }
   }
+  function renderLink(name, pathSection) {
+    console.log(currentURL.url);
+    if (currentURL.url === "/" || currentURL.url === "/Home") {
+      return (
+        <Link
+          activeClass="activeCat"
+          to={pathSection}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          {name}
+        </Link>
+      );
+    } else {
+      return (
+        <NavLink to="/" onClick={() => handleBackHome(name)}>
+          {name}
+        </NavLink>
+      );
+    }
+  }
+  renderLink();
   return (
     <header className="wp-header">
       <div className="header container-fluid">
         {renderArrowBack()}
         <div className="header__logo">
-          <NavLink exact={true} to="/" onClick={handleBackHome}>
+          <NavLink exact={true} to="/" onClick={() => handleBackHome("")}>
             <img
               src="../../../images/web-logo.png"
               className="img-fluid"
@@ -114,56 +134,10 @@ function Header(props) {
         </div>
         <div className="header__wp-list-group">
           <ul className="list-unstyled list-item mb-0">
-            <li className="item">
-              <Link
-                activeClass="activeCat"
-                to="section1"
-                // exact={true}
-                // to="/"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Lịch chiếu
-              </Link>
-            </li>
-            <li className="item">
-              <Link
-                activeClass="activeCat"
-                to="section2"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Cụm rạp
-              </Link>
-            </li>
-            <li className="item">
-              <Link
-                activeClass="activeCat"
-                to="section3"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Tin tức
-              </Link>
-            </li>
-            <li className="item">
-              <Link
-                activeClass="activeCat"
-                to="section4"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Ứng dụng
-              </Link>
-            </li>
+            <li className="item">{renderLink("Lịch chiếu", "section1")}</li>
+            <li className="item">{renderLink("Cụm rạp", "section2")}</li>
+            <li className="item">{renderLink("Tin tức", "section3")}</li>
+            <li className="item">{renderLink("Ứng dụng", "section4")}</li>
           </ul>
         </div>
         <div className="header__wp-content">{renderUser()}</div>

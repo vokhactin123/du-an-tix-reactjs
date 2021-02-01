@@ -1,6 +1,7 @@
 const initialState = {
   isLoading: false,
   count: 0,
+  nameMenu: null,
 };
 const CommonReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,6 +17,10 @@ const CommonReducer = (state = initialState, action) => {
     }
     case "RESET_COUNT": {
       return { ...state, count: action.payload };
+    }
+    case "GET_NAME_MENU": {
+      console.log(action.payload);
+      return { ...state, nameMenu: action.payload };
     }
     default:
       return state;

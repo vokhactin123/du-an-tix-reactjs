@@ -153,7 +153,9 @@
       transition: 0.5s right;
       li {
         a {
-          color: #000;
+          font-size: 15px;
+          color: #010101;
+          font-weight: bold;
         }
         &:first-child {
           display: flex;
@@ -174,7 +176,7 @@
     transition: 0.5s right;
     right: -100px;
     top: 0px;
-    z-index: 101;
+    z-index: 9999;
     max-height: 100%;
     overflow: hidden !important;
   }

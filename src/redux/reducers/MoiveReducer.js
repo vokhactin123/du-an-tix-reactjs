@@ -18,6 +18,7 @@ const Movie = (state = initialState, action) => {
     case "OPEN_TRAILER": {
       return { ...state, closeTrailer: action.payload };
     }
+
     default:
       return { ...state };
   }

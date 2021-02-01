@@ -89,9 +89,11 @@ p{
           flex-direction: column;
           h3{
             text-transform: uppercase;
-            color: rgb(187, 11, 11);
+            color: #2c2b2b;
             text-align: center;
+            font-weight: 600;
             display: block;
+            font-size: 19px;
           }
           ul.tab__menu{
             display: flex;

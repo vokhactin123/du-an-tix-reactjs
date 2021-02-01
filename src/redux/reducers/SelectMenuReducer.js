@@ -93,6 +93,7 @@ const SelectMenuReducer = (state = initialState, action) => {
       // console.log(action.payload);
       return { ...state, codeShowTime: action.payload };
     }
+
     default:
       return { ...state };
   }

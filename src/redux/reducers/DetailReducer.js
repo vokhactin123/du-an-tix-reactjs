@@ -89,6 +89,7 @@ const DetailReducer = (state = initialState, action) => {
       state.showTimeSelected = arrLichChieuTheoRap;
       return { ...state };
     }
+
     default:
       return { ...state };
   }

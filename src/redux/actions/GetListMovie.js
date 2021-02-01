@@ -40,6 +40,13 @@ function handleReset(data) {
   };
 }
 export { handleReset };
+function handleGetNameMenu(data) {
+  return {
+    type: "GET_NAME_MENU",
+    payload: data,
+  };
+}
+export { handleGetNameMenu };
 function getTrailerMovie(data) {
   return {
     type: "GET_TRAILER",

@@ -7,8 +7,10 @@ import { BiNews } from "react-icons/bi";
 import { BiLogOut } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { GetInfoByLogout } from "../../../redux/actions/User";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
+import { handleGetNameMenu } from "../../../redux/actions/GetListMovie";
+import { handleReset } from "../../../redux/actions/GetListMovie";
 import swal from "sweetalert";
 function SidebarResponsive(props) {
   let { activeSidebar, setHideSidebar } = props;
@@ -34,12 +36,88 @@ function SidebarResponsive(props) {
         swal("click to the button", "logout successfully!", "success");
       }
     });
-    // window.localStorage.removeItem("user");
-    // let user = "";
-    // // dispatch(handleReset(0));
-    // dispatch(GetInfoByLogout(user));
-    // history.push("/");
-    // setHideSidebar(false);
+  }
+  function renderUsername() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      return (
+        <div className="wp-info-drop">
+          <a href="true">
+            <img
+              src="../../../images/anh-dai-dien.png"
+              className="img-fluid"
+              alt="anh dai dien"
+            />
+          </a>
+          <span>{user.taiKhoan}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div className="wp-info-drop">
+          <a href="true">
+            <img
+              src="https://tix.vn/app/assets/img/avatar.png"
+              className="img-fluid"
+              alt="anh dai dien"
+            />
+          </a>
+          <NavLink
+            to="/Login"
+            className="username ml-2 avatar__header usernameHome__responsive"
+          >
+            Đăng nhập
+          </NavLink>
+        </div>
+      );
+    }
+  }
+  function renderLogout() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      return (
+        <li className="mb-5">
+          <BiLogOut size="1.5em" />
+          <a className="ml-3 hover__eff" onClick={handleLogout}>
+            Đăng xuất
+          </a>
+        </li>
+      );
+    }
+  }
+  let currentURL = useRouteMatch();
+  function handleBackHome(name) {
+    console.log(currentURL);
+    if (currentURL.url !== "/" || currentURL.url !== "/Home") {
+      dispatch(handleReset(0));
+      dispatch(handleGetNameMenu(name));
+    }
+    scroll.scrollToTop({ duration: 300, smooth: true });
+  }
+  function renderLink(name, pathSection) {
+    console.log(currentURL.url);
+    if (currentURL.url === "/" || currentURL.url === "/Home") {
+      return (
+        <Link
+          className="ml-3 hover__eff"
+          activeClass="activeCat"
+          to={pathSection}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          onClick={HideSidebar}
+        >
+          {name}
+        </Link>
+      );
+    } else {
+      return (
+        <NavLink to="/" onClick={() => handleBackHome(name)}>
+          {name}
+        </NavLink>
+      );
+    }
   }
   return (
     <React.Fragment>
@@ -51,16 +129,7 @@ function SidebarResponsive(props) {
       >
         <ul className="list-unstyled list-dropdown">
           <li className="mb-5 mt-3">
-            <div className="wp-info-drop">
-              <a href="true">
-                <img
-                  src="../../../images/anh-dai-dien.png"
-                  className="img-fluid"
-                  alt="anh dai dien"
-                />
-              </a>
-              <span>Võ Khắc Tín</span>
-            </div>
+            {renderUsername()}
             <i
               className="fas fa-angle-right"
               id="icon-menudrop"
@@ -69,72 +138,21 @@ function SidebarResponsive(props) {
           </li>
           <li className="mb-5">
             <RiSlideshow3Fill size="1.5em" />
-            <Link
-              className="ml-2"
-              activeClass="activeCat"
-              to="section1"
-              // exact={true}
-              // to="/"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={HideSidebar}
-            >
-              Lịch chiếu
-            </Link>
+            {renderLink("Lịch chiếu", "section1")}
           </li>
           <li className="mb-5">
             <MdTheaters size="1.5em" />
-            <Link
-              className="ml-2"
-              activeClass="activeCat"
-              to="section2"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={HideSidebar}
-            >
-              Cụm rạp
-            </Link>
+            {renderLink("Cụm rạp", "section2")}
           </li>
           <li className="mb-5">
             <BiNews size="1.5em" />
-            <Link
-              className="ml-2"
-              activeClass="activeCat"
-              to="section3"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={HideSidebar}
-            >
-              Tin tức
-            </Link>
+            {renderLink("Tin tức", "section3")}
           </li>
           <li className="mb-5">
             <MdSettingsApplications size="1.5em" />
-            <Link
-              className="ml-2"
-              activeClass="activeCat"
-              to="section4"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={HideSidebar}
-            >
-              Ứng dụng
-            </Link>
+            {renderLink("Ứng dụng", "section4")}
           </li>
-          <li className="mb-5">
-            <BiLogOut size="1.5em" />
-            <a className="ml-2" onClick={handleLogout}>
-              Đăng xuất
-            </a>
-          </li>
+          {renderLogout()}
         </ul>
       </div>
       <div
