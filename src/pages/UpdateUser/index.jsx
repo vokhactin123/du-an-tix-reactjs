@@ -19,11 +19,8 @@ const useStyles = makeStyles({
   styleInput: {
     width: "90%",
   },
-  styleInputFullname: {
-    width: "95.5%",
-  },
   styleMarginBottom: {
-    marginBottom: "5px",
+    marginBottom: "20px",
   },
   styleH1: {
     margin: "20px 0px",
@@ -33,15 +30,12 @@ const useStyles = makeStyles({
   },
   styleButton: {
     outline: "none",
-    width: "95.5%",
+    width: "100%",
     "&:focus": {
       border: "none !important",
       outline: "none !important",
     },
     background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
-  },
-  styleGrid: {
-    height: "100px",
   },
 });
 function UpdateUser(props) {
@@ -94,187 +88,187 @@ function UpdateUser(props) {
   let dispatch = useDispatch();
   const onSubmit = (data, e, reset) => {
     console.log(data);
-    // console.log(data, history);
     dispatch(updateUser(data, history));
-
-    // e.target.reset();
   };
   const classes = useStyles();
   return (
-    <Grid
-      container
-      item
-      direction="column"
-      justify="center"
-      alignItems="center"
-    >
-      <Grid item md={12} justify="center" className={classes.styleH1}>
-        <Typography variant="h5">UPDATE USER</Typography>
-      </Grid>
-      <form className={classes.styleForm} onSubmit={handleSubmit(onSubmit)}>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          className={classes.styleMarginBottom}
-        >
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register}
-              className={classes.styleInput}
-              id="username"
-              label="tài khoản"
-              variant="outlined"
-              color="primary"
-              name="taiKhoan"
-              error={!!errors.taiKhoan}
-              inputProps={{ readOnly: true }}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            {errors.taiKhoan && (
-              <p className="text-danger">{errors.taiKhoan?.message}</p>
-            )}
-          </Grid>
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register({ required: true })}
-              className={classes.styleInput}
-              id="password"
-              label="mật khẩu"
-              variant="outlined"
-              color="primary"
-              name="matKhau"
-              error={!!errors.matKhau}
-            />
-            {errors.matKhau && (
-              <p className="text-danger">{errors.matKhau?.message}</p>
-            )}
-          </Grid>
+    <div className="container-fluid wp__form__update__home">
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        className="wp__mui__con"
+      >
+        <Grid item md={12} justify="center" className={classes.styleH1}>
+          <Typography variant="h6">UPDATE USER</Typography>
         </Grid>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          className={classes.styleMarginBottom}
-        >
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register}
-              className={classes.styleInput}
-              id="email"
-              label="email"
-              variant="outlined"
-              color="primary"
-              name="email"
-              error={!!errors.email}
-            />
-            {errors.email && (
-              <p className="text-danger">{errors.email?.message}</p>
-            )}
-          </Grid>
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register}
-              className={classes.styleInput}
-              id="soDt"
-              label="số điện thoại"
-              variant="outlined"
-              color="primary"
-              name="soDt"
-              error={!!errors.soDt}
-            />
-            {errors.soDt && (
-              <p className="text-danger">{errors.soDt?.message}</p>
-            )}
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          // item
-          justify="center"
-          alignItems="center"
-          className={classes.styleMarginBottom}
-        >
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register}
-              className={classes.styleInput}
-              id="maNhom"
-              label="mã nhóm"
-              variant="outlined"
-              color="primary"
-              defaultValue="GP01"
-              aria-readonly
-              name="maNhom"
-            />
-          </Grid>
-          <Grid item md={3} xs={12} className={classes.styleGrid}>
-            <FormControl className={classes.styleInput}>
-              <InputLabel id="demo-simple-select-label">
-                Loại người dùng
-              </InputLabel>
-              <Controller
-                name="maLoaiNguoiDung"
-                control={control}
-                defaultValue={"KhachHang"}
-                as={
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                  >
-                    <MenuItem value={"KhachHang"}>KhachHang</MenuItem>
-                    <MenuItem value={"QuanTri"}>QuanTri</MenuItem>
-                  </Select>
-                }
+        <form className={classes.styleForm} onSubmit={handleSubmit(onSubmit)}>
+          <Grid
+            spacing={3}
+            container
+            item
+            justify="center"
+            alignItems="center"
+            className={classes.styleMarginBottom}
+          >
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth={true}
+                inputRef={register}
+                id="username"
+                label="tài khoản"
+                variant="outlined"
+                color="primary"
+                name="taiKhoan"
+                error={!!errors.taiKhoan}
+                inputProps={{ readOnly: true }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
-            </FormControl>
+              {errors.taiKhoan && (
+                <p className="text-danger">{errors.taiKhoan?.message}</p>
+              )}
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                inputRef={register({ required: true })}
+                // className={classes.styleInput}
+                id="password"
+                label="mật khẩu"
+                variant="outlined"
+                color="primary"
+                name="matKhau"
+                error={!!errors.matKhau}
+              />
+              {errors.matKhau && (
+                <p className="text-danger">{errors.matKhau?.message}</p>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid
-          container
-          // item
-          justify="center"
-          alignItems="center"
-          className={classes.styleMarginBottom}
-        >
-          <Grid item md={6} xs={12} className={classes.styleGrid}>
-            <TextField
-              inputRef={register}
-              className={classes.styleInputFullname}
-              id="fullname"
-              label="họ tên"
-              variant="outlined"
-              color="primary"
-              name="hoTen"
-            />
-            {errors.hoTen && (
-              <p className="text-danger">{errors.hoTen?.message}</p>
-            )}
+          <Grid
+            spacing={3}
+            container
+            item
+            justify="center"
+            alignItems="center"
+            className={classes.styleMarginBottom}
+          >
+            <Grid item md={3} xs={12}>
+              <TextField
+                inputRef={register}
+                id="email"
+                label="email"
+                variant="outlined"
+                color="primary"
+                name="email"
+                error={!!errors.email}
+                fullWidth
+              />
+              {errors.email && (
+                <p className="text-danger">{errors.email?.message}</p>
+              )}
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                inputRef={register}
+                id="soDt"
+                label="số điện thoại"
+                variant="outlined"
+                color="primary"
+                name="soDt"
+                error={!!errors.soDt}
+              />
+              {errors.soDt && (
+                <p className="text-danger">{errors.soDt?.message}</p>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid
-          container
-          // item
-          justify="center"
-          alignItems="center"
-          className={classes.styleMarginBottom}
-        >
-          <Grid item md={6} xs={12}>
-            <Button
-              type="submit"
-              className={classes.styleButton}
-              variant="contained"
-              color="secondary"
-              name="submit"
-            >
-              CONFIRM
-            </Button>
+          <Grid
+            spacing={3}
+            container
+            item
+            justify="center"
+            alignItems="center"
+            className={classes.styleMarginBottom}
+          >
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                inputRef={register}
+                id="maNhom"
+                label="mã nhóm"
+                variant="outlined"
+                color="primary"
+                defaultValue="GP01"
+                aria-readonly
+                name="maNhom"
+              />
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Loại người dùng
+                </InputLabel>
+                <Controller
+                  name="maLoaiNguoiDung"
+                  control={control}
+                  defaultValue={"KhachHang"}
+                  as={
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                    >
+                      <MenuItem value={"KhachHang"}>KhachHang</MenuItem>
+                      <MenuItem value={"QuanTri"}>QuanTri</MenuItem>
+                    </Select>
+                  }
+                />
+              </FormControl>
+            </Grid>
           </Grid>
-        </Grid>
-      </form>
-    </Grid>
+          <Grid
+            spacing={3}
+            container
+            item
+            justify="center"
+            alignItems="center"
+            className={classes.styleMarginBottom}
+          >
+            <Grid item md={6} xs={12} className={classes.styleGrid}>
+              <TextField
+                fullWidth
+                inputRef={register}
+                id="fullname"
+                label="họ tên"
+                variant="outlined"
+                color="primary"
+                name="hoTen"
+              />
+              {errors.hoTen && (
+                <p className="text-danger">{errors.hoTen?.message}</p>
+              )}
+            </Grid>
+          </Grid>
+          <Grid container item spacing={3} justify="center" alignItems="center">
+            <Grid item md={6} xs={12}>
+              <Button
+                type="submit"
+                className={classes.styleButton}
+                variant="contained"
+                color="secondary"
+                name="submit"
+              >
+                CONFIRM
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Grid>
+    </div>
   );
 }
 export default UpdateUser;
