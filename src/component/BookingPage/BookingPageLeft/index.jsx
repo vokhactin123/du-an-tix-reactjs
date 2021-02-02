@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import ListSeat from "../ListSeat";
 import "./bookingPageLeft.scss";
 import swal from "sweetalert";
-import { useHistory } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ResetActiveNotify } from "../../../redux/actions/Booking";
 import CheckOutResponsive from "../CheckOutResponsive";
+import { handleReset } from "../../../redux/actions/GetListMovie";
 function changeColorTex(logo) {
   if (logo === "BHD Star Cineplex ") {
     return "greenColorTextBrand";
@@ -98,7 +99,25 @@ function BookingPageLeft(props) {
   function changePageBack(data) {
     setPage(data);
   }
-
+  function handleResetCount(e) {
+    if (listSeatSelected.length > 0) {
+      swal({
+        text: "you have seat selected. Do you want to book again?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((ress) => {
+        if (ress) {
+          swal("click the button!", "You will stay here", "success");
+        } else {
+          dispatch(handleReset(0));
+          history.push("/");
+        }
+      });
+      e.preventDefault();
+    }
+    dispatch(handleReset(0));
+  }
   return (
     <React.Fragment>
       <CheckOutResponsive
@@ -116,6 +135,17 @@ function BookingPageLeft(props) {
             <li>01 CHỌN GHẾ &amp; THANH TOÁN</li>
             <li>02 KẾT QUẢ ĐẶT VÉ</li>
           </ul>
+          <NavLink
+            to="/"
+            className="logo__bookingTix"
+            onClick={handleResetCount}
+          >
+            <img
+              src="../../../images/web-logo.png"
+              className="img-fluid"
+              alt="logo"
+            />
+          </NavLink>
           <div className="chooseSeat__header__infoUser">
             <p className="titleDisplay">
               <img width="30px" src="../../../../images/user.png" alt="user" />

@@ -187,6 +187,11 @@ p{
                 display: none;
             }
            &__header{
+               .logo__bookingTix{   
+                position: absolute;
+                left: 30px;
+                top: 17px;
+               }
             flex-flow: column-reverse !important;
                flex-direction: column;
                &__process{
