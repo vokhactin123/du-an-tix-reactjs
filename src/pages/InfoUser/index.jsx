@@ -6,6 +6,7 @@ import format from "date-format";
 import Switch from "@material-ui/core/Switch";
 import { NavLink } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
+import Loading from "../../component/Loading";
 function InfoUser(props) {
   const user = JSON.parse(localStorage.getItem("user"));
   let dispatch = useDispatch();
@@ -19,6 +20,9 @@ function InfoUser(props) {
   }, []);
   let infoUserBooking = useSelector((state) => {
     return state.UserReducer.infoUserBooking;
+  });
+  let isLoading = useSelector((state) => {
+    return state.CommonReducer.isLoading;
   });
   function renderListHistoryBooking() {
     if (infoUserBooking?.thongTinDatVe) {
@@ -41,6 +45,7 @@ function InfoUser(props) {
   }
   return (
     <div>
+      {isLoading ? <Loading /> : ""}
       <div className="wp__switch">
         <Switch
           checked={showBookingHistory}

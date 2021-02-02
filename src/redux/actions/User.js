@@ -1,5 +1,6 @@
 import axios from "axios";
 import swal from "sweetalert";
+import { startLoading, stopLoading } from "./Common";
 function handleUserLoginRequest(user, history) {
   return (dispatch) => {
     axios({
@@ -56,6 +57,7 @@ function ResetErMess(err) {
 }
 function fetchInfoUserRequest(username) {
   return (dispatch) => {
+    dispatch(startLoading());
     axios({
       method: "POST",
       url:
@@ -65,9 +67,11 @@ function fetchInfoUserRequest(username) {
       .then(function (ress) {
         console.log(ress.data);
         dispatch(fetchInfoUserSuccess(ress.data));
+        dispatch(stopLoading());
       })
       .catch(function (err) {
         dispatch(fetchInfoUserFailed(err));
+        dispatch(stopLoading());
       });
   };
 }

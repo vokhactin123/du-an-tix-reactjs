@@ -11,6 +11,8 @@ import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { handleGetNameMenu } from "../../../redux/actions/GetListMovie";
 import { handleReset } from "../../../redux/actions/GetListMovie";
+import { AiOutlineUser } from "react-icons/ai";
+
 import swal from "sweetalert";
 function SidebarResponsive(props) {
   let { activeSidebar, setHideSidebar } = props;
@@ -123,6 +125,9 @@ function SidebarResponsive(props) {
       );
     }
   }
+  function handleResetCount() {
+    dispatch(handleReset(0));
+  }
   return (
     <React.Fragment>
       <div
@@ -155,6 +160,16 @@ function SidebarResponsive(props) {
           <li className="mb-5">
             <MdSettingsApplications size="1.5em" />
             {renderLink("Ứng dụng", "section4")}
+          </li>
+          <li className="mb-5">
+            <AiOutlineUser size="1.5em" />
+            <NavLink
+              to="/Info"
+              className="ml-3 hover__eff"
+              onClick={handleResetCount}
+            >
+              Info
+            </NavLink>
           </li>
           {renderLogout()}
         </ul>
