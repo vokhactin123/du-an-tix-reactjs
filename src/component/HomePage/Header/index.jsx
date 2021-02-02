@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 import "./header.scss";
 import { GetInfoByLogout } from "../../../redux/actions/User";
@@ -9,16 +9,14 @@ import SidebarResponsive from "../SidebarResponsive";
 import swal from "sweetalert";
 import { handleGetNameMenu } from "../../../redux/actions/GetListMovie";
 function Header(props) {
-  // console.log(props);
   let currentURL = useRouteMatch();
   console.log(currentURL);
   let [showSidebar, setShowSidebar] = useState(false);
   let history = useHistory();
   let dispatch = useDispatch();
-
-  let user = useSelector((state) => {
-    return state.UserReducer.infoUser;
-  });
+  function handleResetCount() {
+    dispatch(handleReset(0));
+  }
   function renderUser() {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
@@ -26,7 +24,9 @@ function Header(props) {
         <div className="info-user">
           <img src="../../../images/anh-dai-dien.png" alt="username" />
           <span className="username ml-1">
-            <NavLink to="/Info">{user.taiKhoan}</NavLink>{" "}
+            <NavLink to="/Info" onClick={handleResetCount}>
+              {user.taiKhoan}
+            </NavLink>{" "}
           </span>
           <div className="info-user__logout" onClick={handleLogout}>
             Đăng xuất

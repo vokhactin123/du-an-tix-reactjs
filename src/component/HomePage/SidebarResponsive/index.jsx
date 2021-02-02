@@ -31,7 +31,6 @@ function SidebarResponsive(props) {
       if (ress) {
         window.localStorage.removeItem("user");
         let user = "";
-        // dispatch(handleReset(0));
         dispatch(GetInfoByLogout(user));
         history.push("/");
         setHideSidebar(false);
@@ -80,9 +79,26 @@ function SidebarResponsive(props) {
       return (
         <li className="mb-5">
           <BiLogOut size="1.5em" />
-          <a className="ml-3 hover__eff" onClick={handleLogout}>
+          <a href className="ml-3 hover__eff" onClick={handleLogout}>
             Đăng xuất
           </a>
+        </li>
+      );
+    }
+  }
+  function renderInfo() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      return (
+        <li className="mb-5">
+          <AiOutlineUser size="1.5em" />
+          <NavLink
+            to="/Info"
+            className="ml-3 hover__eff"
+            onClick={handleResetCount}
+          >
+            Info
+          </NavLink>
         </li>
       );
     }
@@ -161,16 +177,7 @@ function SidebarResponsive(props) {
             <MdSettingsApplications size="1.5em" />
             {renderLink("Ứng dụng", "section4")}
           </li>
-          <li className="mb-5">
-            <AiOutlineUser size="1.5em" />
-            <NavLink
-              to="/Info"
-              className="ml-3 hover__eff"
-              onClick={handleResetCount}
-            >
-              Info
-            </NavLink>
-          </li>
+          {renderInfo()}
           {renderLogout()}
         </ul>
       </div>

@@ -214,6 +214,7 @@ function UpdateUser(props) {
                   Loại người dùng
                 </InputLabel>
                 <Controller
+                  inputProps={{ MenuProps: { disableScrollLock: true } }}
                   name="maLoaiNguoiDung"
                   control={control}
                   defaultValue={"KhachHang"}
