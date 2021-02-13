@@ -1,1 +1,2 @@
-mấy anh chị nào chấm trên đồ án em thì responsive trên màn hình 6/7/8 plus nha, em cảm ơn
+anh chị kiểm tra trên màn hình iphone 6/7/8 plus nha, em cảm 
+ơn!
